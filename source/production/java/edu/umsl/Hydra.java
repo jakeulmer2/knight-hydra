@@ -52,8 +52,22 @@ public class Hydra {
         System.out.println("The hydra has " + heads + " heads, and " +
         tails + " tails.");
 
+        //Check for and display headless Hydra
         if(isAlive && heads == 0){
             System.out.println("We have a Headless Hydra my Lord!");
+        }
+
+    }
+
+    public void deathCheck(){
+        //Check for Hydra death and defeat
+        if(heads == 0 && tails == 0){
+            isAlive = false;
+            System.out.println("The Hydra has been slain, and Princess Perly has been saved!!");
+            System.out.println("Thanks to Knight PyPy the Brave and Princess Perly's wisdom, ");
+            System.out.println("order has been restored and " +
+                    "rays of hope shine upon the land once again!");
+            System.exit(0);
         }
 
     }

@@ -33,40 +33,65 @@ public class KnightPyPy {
     }
 
     public void attack1(Hydra hydra){
-        hydra.setHeads(((hydra.getHeads() - 1) + 1));
+        if(hydra.getHeads() == 0){
+            System.out.println("There aren't any heads to cut off. Try another attack my Lord.");
+        }else{
+            hydra.setHeads(((hydra.getHeads() - 1) + 1));
+        }
     }
 
     public void attack2(Hydra hydra){
-        hydra.setTails(((hydra.getTails() - 1) + 2));
+
+        if(hydra.getTails() == 0){
+            System.out.println("There aren't any tails to cut off. Try another attack my Lord.");
+        }else{
+            hydra.setTails(((hydra.getTails() - 1) + 2));
+        }
     }
 
     public void attack3(Hydra hydra){
-        hydra.setHeads(hydra.getHeads() - 2);
+
+        if(hydra.getHeads() <= 1){
+            System.out.println("There aren't TWO heads to cut off. Try another attack my Lord.");
+        }else{
+            hydra.setHeads(hydra.getHeads() - 2);
+        }
     }
 
     public void attack4(Hydra hydra){
-        hydra.setTails(hydra.getTails() - 2);
-        hydra.setHeads(hydra.getHeads() + 1);
+
+        if(hydra.getTails() <= 1){
+            System.out.println("There aren't TWO tails to cut off. Try another attack my Lord.");
+        }else{
+            hydra.setTails(hydra.getTails() - 2);
+            hydra.setHeads(hydra.getHeads() + 1);
+        }
     }
 
     public void attack5(){
         isBrave = false;
-
+        System.out.println("Apparently Knight PyPy is not so brave after all.");
+        System.out.println("He has run home to hide under his bed, and Princess Perly is stuck" +
+            " smelling Hydra halitosis for the rest of her days.");
     }
 
     public static void doAttack( int move, KnightPyPy knight, Hydra hydra){
         switch(move){
             case 1:
                 knight.attack1(hydra);
+                System.out.println("Knight PyPy cut off ONE head, and ONE head grew right back!");
                 break;
             case 2:
                 knight.attack2(hydra);
+                System.out.println("Knight PyPy cut off ONE tail, and TWO tails grew right back!");
                 break;
             case 3:
                 knight.attack3(hydra);
+                System.out.println("Knight PyPy cut off TWO heads!");
                 break;
             case 4:
                 knight.attack4(hydra);
+                System.out.println("Knight PyPy cut off TWO tails, and ONE head grew right back!");
                 break;
             case 5:
                 knight.attack5();

@@ -16,6 +16,7 @@ public class KnightVsHydra {
             + "fire-breathing heads do you see?!");
         hydraHeads = input.nextInt();
         System.out.println("...and how many poisonous tails?!");
+        System.out.println("The only way to defeat the magical Hydra is to leave it with NO heads and No tails.");
         hydraTails = input.nextInt();
 
 
@@ -26,9 +27,10 @@ public class KnightVsHydra {
 
 
 
-       //This is actual game play
+       //while loop to run the game will the Hydra is alive and hasn't run away
         while(hydra.getIsAlive() && knightPyPy.getIsBrave()){
             knightPyPy.doAttack(getChoice(knightPyPy), knightPyPy, hydra);
+            hydra.deathCheck();
             hydra.showHydra();
 
 
@@ -37,6 +39,7 @@ public class KnightVsHydra {
 
     }
 
+    //Method to get user's choice and validate input
     public static int getChoice(KnightPyPy knight){
         Scanner input = new Scanner(System.in);
         int choice = 0;
