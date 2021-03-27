@@ -37,6 +37,7 @@ public class KnightPyPy {
             System.out.println("There aren't any heads to cut off. Try another attack my Lord.");
         }else{
             hydra.setHeads(((hydra.getHeads() - 1) + 1));
+            System.out.println("Knight PyPy cut off ONE head, and ONE head grew right back!");
         }
     }
 
@@ -46,6 +47,7 @@ public class KnightPyPy {
             System.out.println("There aren't any tails to cut off. Try another attack my Lord.");
         }else{
             hydra.setTails(((hydra.getTails() - 1) + 2));
+            System.out.println("Knight PyPy cut off ONE tail, and TWO tails grew right back!");
         }
     }
 
@@ -55,6 +57,7 @@ public class KnightPyPy {
             System.out.println("There aren't TWO heads to cut off. Try another attack my Lord.");
         }else{
             hydra.setHeads(hydra.getHeads() - 2);
+            System.out.println("Knight PyPy cut off TWO heads!");
         }
     }
 
@@ -65,6 +68,7 @@ public class KnightPyPy {
         }else{
             hydra.setTails(hydra.getTails() - 2);
             hydra.setHeads(hydra.getHeads() + 1);
+            System.out.println("Knight PyPy cut off TWO tails, and ONE head grew right back!");
         }
     }
 
@@ -79,19 +83,15 @@ public class KnightPyPy {
         switch(move){
             case 1:
                 knight.attack1(hydra);
-                System.out.println("Knight PyPy cut off ONE head, and ONE head grew right back!");
                 break;
             case 2:
                 knight.attack2(hydra);
-                System.out.println("Knight PyPy cut off ONE tail, and TWO tails grew right back!");
                 break;
             case 3:
                 knight.attack3(hydra);
-                System.out.println("Knight PyPy cut off TWO heads!");
                 break;
             case 4:
                 knight.attack4(hydra);
-                System.out.println("Knight PyPy cut off TWO tails, and ONE head grew right back!");
                 break;
             case 5:
                 knight.attack5();
