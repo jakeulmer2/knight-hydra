@@ -48,6 +48,7 @@ public class Hydra {
             + t + " poisonous tails!");
     }
 
+    //Method for displaying the current Hydra heads and tails
     public void showHydra(){
         System.out.println("The hydra has " + heads + " heads, and " +
         tails + " tails.");
@@ -59,8 +60,8 @@ public class Hydra {
 
     }
 
+    //Method to check if Hydra is dead/defeated
     public void deathCheck(){
-        //Check for Hydra death and defeat
         if(heads == 0 && tails == 0){
             isAlive = false;
             System.out.println("The Hydra has been slain, and Princess Perly has been saved!!");
@@ -70,6 +71,18 @@ public class Hydra {
             System.exit(0);
         }
 
+    }
+
+    //Method to find how minimum amount of attacks to kill the Hydra or if it is impossible
+    public int findMinMoves(){
+        int minMoves;
+
+        if(heads % 2 != 0 && tails == 0){
+            minMoves = -1; //Will not be able to kill Hydra, just run away
+            return minMoves;
+        }else{
+            return 0;//delete this and finish rest of code
+        }
     }
 
 

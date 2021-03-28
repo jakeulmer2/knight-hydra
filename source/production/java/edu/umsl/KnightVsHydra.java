@@ -41,6 +41,7 @@ public class KnightVsHydra {
         //Create the Hydra and Knight PyPy
         Hydra hydra = new Hydra(hydraHeads, hydraTails);
         KnightPyPy knightPyPy = new KnightPyPy();
+
         System.out.println("The only way to defeat the magical Hydra is to leave it with NO heads and No tails.");
         System.out.println("What attack shall brave Knight PyPy unleash first to vanquish this foul beast?");
 
@@ -48,6 +49,7 @@ public class KnightVsHydra {
 
        //while loop to run the game will the Hydra is alive and PyPy hasn't run away
         while(hydra.getIsAlive() && knightPyPy.getIsBrave()){
+            showMinMovesOrNot(hydra);
             knightPyPy.doAttack(getChoice(knightPyPy), knightPyPy, hydra);
             hydra.deathCheck();
 
@@ -85,6 +87,49 @@ public class KnightVsHydra {
         }while(!goodInput);
 
         return choice;
+    }
+
+    //Method to ask user if they want to see the minimum moves each time with input verification
+    //and display them accordingly
+    public static void showMinMovesOrNot(Hydra hydra){
+        Scanner input = new Scanner(System.in);
+        char yesOrNo;
+        boolean goodInput;
+
+        do{
+            try{
+                System.out.println("------------------------------");
+                System.out.println("Do you want to know the minimum number of moves " +
+                        "to kill the Hydra? Y or N");
+                yesOrNo = Character.toUpperCase(input.next().charAt(0));
+                goodInput = true;
+
+                if(yesOrNo == 'Y' || yesOrNo == 'N'){
+                    if(yesOrNo == 'N'){
+                        continue;
+                    }else{
+                        if(hydra.findMinMoves() == -1){
+                            System.out.println("The minimum number of attacks to kill the Hydra is " +
+                                    hydra.findMinMoves() + ".");
+                            System.out.println("It is impossible to kill the Hydra. RUN AWAY!!");
+                        }else{
+                            System.out.println("The minimum number of attacks to kill the Hydra is " +
+                                    hydra.findMinMoves() + ".");
+                        }
+                    }
+                }else{
+                    System.out.println("You can only enter Y or N1");
+                    goodInput = false;
+                }
+            }catch(InputMismatchException e){
+                System.out.println("You can only enter Y or N2");
+                input.nextLine(); //clear bad input
+                goodInput = false;
+            }
+
+        }while(!goodInput);
+
+
     }
 
 

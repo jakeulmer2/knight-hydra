@@ -19,6 +19,7 @@ public class KnightPyPy {
 
     }
 
+    //Method for displaying Knight PyPy's attack options
     public static void attackMenu(){
         System.out.println("------------------------------");
         System.out.printf("%26s", "Knight PyPy's Attacks\n");
@@ -32,6 +33,7 @@ public class KnightPyPy {
 
     }
 
+    //Next 5 Methods are Knight PyPy's 5 attack options
     public void attack1(Hydra hydra){
         if(hydra.getHeads() == 0){
             System.out.println("There aren't any heads to cut off. Try another attack my Lord.");
@@ -79,6 +81,7 @@ public class KnightPyPy {
             " smelling Hydra halitosis for the rest of her days.");
     }
 
+    //Method for performing the attack chosen by the user each time
     public static void doAttack( int move, KnightPyPy knight, Hydra hydra){
         switch(move){
             case 1:
