@@ -14,7 +14,7 @@ public class KnightVsHydra {
         System.out.println("Help Knight PyPy rescue Princess Perly from the dreaded"
             + " Hydra before its to late!");
 
-        //Getting starting Hydra heads/tails with input verification
+        //Get starting Hydra heads/tails with input verification
         do{
             try{
                 System.out.println("Look...over there in the ominous cave, its the Hydra!  How many "
@@ -118,11 +118,11 @@ public class KnightVsHydra {
                         }
                     }
                 }else{
-                    System.out.println("You can only enter Y or N1");
+                    System.out.println("You can only enter Y or N");
                     goodInput = false;
                 }
             }catch(InputMismatchException e){
-                System.out.println("You can only enter Y or N2");
+                System.out.println("You can only enter Y or N");
                 input.nextLine(); //clear bad input
                 goodInput = false;
             }

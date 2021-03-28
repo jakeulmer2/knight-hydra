@@ -48,6 +48,13 @@ public class Hydra {
             + t + " poisonous tails!");
     }
 
+    //Copy constructor for use with minimum moves method
+    public Hydra(Hydra actualHydra){
+        this.heads = actualHydra.heads;
+        this.tails = actualHydra.tails;
+        this.isAlive = actualHydra.isAlive;
+    }
+
     //Method for displaying the current Hydra heads and tails
     public void showHydra(){
         System.out.println("The hydra has " + heads + " heads, and " +
@@ -73,16 +80,80 @@ public class Hydra {
 
     }
 
-    //Method to find how minimum amount of attacks to kill the Hydra or if it is impossible
+    //Method to find the minimum amount of attacks to kill the Hydra or if it is impossible
     public int findMinMoves(){
-        int minMoves;
+        int minMoves = 0;
 
         if(heads % 2 != 0 && tails == 0){
             minMoves = -1; //Will not be able to kill Hydra, just run away
             return minMoves;
-        }else{
-            return 0;//delete this and finish rest of code
+        }else {
+
+            if(heads % 2 == 0 && tails == 0){
+                minMoves = heads / 2;
+            }
+
+            //If heads and tails are even
+            if(heads % 2 == 0 && tails % 2 == 0){
+                //If tails divided by two is even
+                if((heads + (tails / 2)) % 2 == 0){
+                    minMoves = (tails/2) + (((heads + (tails/2)))/2);
+                }
+                //If tails divided by two is odd
+                if((heads + (tails / 2)) % 2 != 0){
+                    minMoves = ((heads/2) + ((tails - 2)/2) + 6);
+                }
+
+            }
+
+            //If heads is even and tails is odd
+            if(heads % 2 == 0 && tails % 2 != 0){
+                //If tails plus one is even
+                if((tails + 1) % 2 == 0){
+                    minMoves = (1 + ((tails + 1) / 2) + ((heads + ((tails + 1) / 2)) / 2) );
+                }
+                //If tails plus one is odd
+                if((tails + 1) % 2 != 0){
+                    minMoves = (((tails / 2) + 3) + 2 + (heads +((tails + 1) /2) + 2));
+                }
+            }
+
+            //If heads and tails are odd
+            if(heads % 2 != 0 && tails % 2 != 0){
+                if(heads == tails){
+                    minMoves = heads * tails;
+                }
+                if(heads < tails){
+                    minMoves = ((heads + tails) - 1);
+                }
+                if(heads > tails){
+                    minMoves = ((heads + tails) + 2);
+                }
+            }
+
+            //If heads is odd and tails is even
+            if(heads % 2 != 0 && tails % 2 == 0){
+                //if tails divided by two is odd
+                if((tails / 2) % 2 != 0){
+                    minMoves = ((tails / 2) + ((heads + (tails / 2)) / 2));
+                }
+                //if tails divided by two is even
+                if((tails / 2) % 2 == 0){
+                    minMoves = (((tails - 2) / 2) + (heads + ((tails -2) / 2)) + 1);
+                }
+            }
+
+            if(heads == 1 && tails == 1){
+                minMoves = 3;
+
+            }
+
+
+            return minMoves;
+
+
         }
+
     }
 
 
